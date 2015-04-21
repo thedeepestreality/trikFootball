@@ -6,10 +6,10 @@
 #TRIKCONTROL_BINDIR = /home/captain/trikRuntime-master/bin/arm-release
 #TRIKCONTROL_DIR = /home/captain/trikRuntime-master/trikControl
 
-TRIKCONTROL_BINDIR = /home/captain/trikRuntime/bin/arm-release
+TRIKCONTROL_BINDIR = /home/captain/Trik/trikRuntime/bin/arm-release
 #TRIKKERNEL_DIR = /home/captain/Trik/trikRuntime/trikKernel
-TRIKCONTROL_DIR = /home/captain/trikRuntime/trikControl
-TRIKKERNEL_DIR = /home/captain/rikRuntime/trikKernel
+TRIKCONTROL_DIR = /home/captain/Trik/trikRuntime/trikControl
+TRIKKERNEL_DIR = /home/captain/Trik/trikRuntime/trikKernel
 
 QT       += core
 QT       += gui

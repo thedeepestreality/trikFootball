@@ -88,8 +88,13 @@ void Test::readDatagram()
 //        }
         else if (!lst[0].compare("rule"))
         {
-            brick->motor("M1")->setPower(datagram[5]);
-            brick->motor("M2")->setPower(datagram[6]);
+            int right=0;
+            int l = 0;
+            if (datagram[5]>100) l=datagram[5]-256; else l=datagram[5];
+            if (datagram[6]>100) right=datagram[6]-256; else right=datagram[6];
+            qDebug()<<l<<" "<<right;
+            brick->motor("M1")->setPower(l);
+            brick->motor("M2")->setPower(right);
         }
 
     }

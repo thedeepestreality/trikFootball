@@ -12,7 +12,7 @@ CC            = $(OE_QMAKE_CC)
 CXX           = $(OE_QMAKE_CXX)
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED
 CFLAGS        = -pipe -pipe $(OE_QMAKE_CFLAGS) -O2 -Wall -W -Wall -W -D_REENTRANT $(DEFINES)
-CXXFLAGS      = -pipe -pipe -std=c++11 -pipe $(OE_QMAKE_CFLAGS) $(OE_QMAKE_CXXFLAGS) -O2 -O2 -Wall -W -Wall -W -Wall -W -D_REENTRANT $(DEFINES)
+CXXFLAGS      = -pipe -pipe -pipe $(OE_QMAKE_CFLAGS) $(OE_QMAKE_CXXFLAGS) -O2 -O2 -Wall -W -Wall -W -Wall -W -D_REENTRANT $(DEFINES)
 INCPATH       = -I/opt/trik-sdk/sysroots/armv5te-oe-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++ -I. -I$(OE_QMAKE_INCDIR_QT)/QtCore -I$(OE_QMAKE_INCDIR_QT)/QtNetwork -I$(OE_QMAKE_INCDIR_QT)/QtGui -I$(OE_QMAKE_INCDIR_QT) -I. -ItrikRuntime/trikControl/include -ItrikRuntime/trikKernel/include -I.
 LINK          = $(OE_QMAKE_LINK)
 LFLAGS        = $(OE_QMAKE_LDFLAGS) -Wl,-O2,-rpath,. -Wl,-rpath-link,$(OE_QMAKE_LIBDIR_QT)
