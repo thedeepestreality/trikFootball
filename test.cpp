@@ -5,7 +5,7 @@ Test::Test(QThread *guiThread)//:
 {
 
    // brick = BrickFactory::create(*guiThread, "./system-config.xml", "./selftest-model-config.xml", "./");
-    brick = BrickFactory::create(*guiThread, "./system-config.xml", "./selftest-model-config.xml", "./");
+    brick = BrickFactory::create("./system-config.xml", "./selftest-model-config.xml", "./");
     //BrickFactory::create()
     qDebug()<<"Started!";
     //brick->motor("M1")->setPower(80);
@@ -30,6 +30,8 @@ Test::Test(QThread *guiThread)//:
             qDebug() << "\t" << mac;
         }
     }
+    brick->motor("E1")->setPower(KICKER);
+    brick->playSound("media/beep.wav");
 
 //    QTimer::singleShot(2000,this,SLOT(stopMotors()));
 //    brick->motor("M1")->setPower(60);
@@ -92,12 +94,38 @@ void Test::readDatagram()
             int l = 0;
             if (datagram[5]>100) l=datagram[5]-256; else l=datagram[5];
             if (datagram[6]>100) right=datagram[6]-256; else right=datagram[6];
-            qDebug()<<l<<" "<<right;
+
             brick->motor("M1")->setPower(l);
             brick->motor("M2")->setPower(right);
+
+            if (datagram.size()>7)
+            {
+                qDebug()<<l<<" "<<right<<" "<<(int)datagram[7];
+
+                if (datagram[7]==1)
+                {
+                    brick->motor("E1")->setPower(KICKER-30);
+                    QTimer::singleShot(300,this,SLOT(kickerBack()));
+                }
+                else if (datagram[7]==255)
+                {
+                    brick->motor("E1")->setPower(KICKER+30);
+                    QTimer::singleShot(150,this,SLOT(kickerBack()));
+                }
+
+                if (datagram[8] == 1)
+                    brick->playSound("media/beep.wav");
+            }
+
+
         }
 
     }
+}
+
+void Test::kickerBack()
+{
+    brick->motor("E1")->setPower(KICKER);
 }
 
 //void Test::action(){

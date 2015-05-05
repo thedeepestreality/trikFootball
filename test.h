@@ -22,6 +22,8 @@
 
 using namespace trikControl;
 
+#define KICKER 45
+
 class Test : public QObject
 {
     Q_OBJECT
@@ -49,6 +51,8 @@ class Test : public QObject
     private slots:
         void readDatagram();
         void stopMotors();
+
+        void kickerBack();
     //    void action();
     //    void acceptConnection();
     //    void serveConnection();
