@@ -6,10 +6,13 @@
 #TRIKCONTROL_BINDIR = /home/captain/trikRuntime-master/bin/arm-release
 #TRIKCONTROL_DIR = /home/captain/trikRuntime-master/trikControl
 
-TRIKCONTROL_BINDIR = /home/captain/Trik/trikRuntime/bin/arm-release
+TRIKCONTROL_BINDIR = /home/captain/trikruntime/bin/arm-release
 #TRIKKERNEL_DIR = /home/captain/Trik/trikRuntime/trikKernel
-TRIKCONTROL_DIR = /home/captain/Trik/trikRuntime/trikControl
-TRIKKERNEL_DIR = /home/captain/Trik/trikRuntime/trikKernel
+TRIKCONTROL_DIR = /home/captain/trikruntime/trikControl
+TRIKKERNEL_DIR = /home/captain/trikruntime/trikKernel
+TRIK_RUNTIME_DIR = /home/captain/trikruntime
+
+include(/home/captain/trikruntime/trikControl/trikControlExport.pri)
 
 QT       += core
 QT       += gui
@@ -31,6 +34,7 @@ LIBS += -L$$TRIKCONTROL_BINDIR -lqslog
 
 !macx {
         QMAKE_LFLAGS += -Wl,-O2,-rpath,.
+        QMAKE_CXXFLAGS += -std=c++11
 }
 
 HEADERS += \

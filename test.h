@@ -20,6 +20,10 @@
 #include <QNetworkInterface>
 #include <QList>
 
+#include <trikControl/brickFactory.h>
+#include <trikControl/brickInterface.h>
+#include <trikKernel/loggingHelper.h>
+
 using namespace trikControl;
 
 #define KICKER 45
@@ -33,6 +37,7 @@ class Test : public QObject
     private:
     //Brick brick;
         BrickInterface * brick;
+
         bool state;
 //    QTcpServer * server;
 //    QTcpSocket * client;

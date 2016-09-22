@@ -5,7 +5,9 @@ Test::Test(QThread *guiThread)//:
 {
 
    // brick = BrickFactory::create(*guiThread, "./system-config.xml", "./selftest-model-config.xml", "./");
-    brick = BrickFactory::create("./system-config.xml", "./selftest-model-config.xml", "./");
+    //brick = BrickFactory::create("./system-config.xml", "./selftest-model-config.xml", "./");
+
+    brick = BrickFactory::create(".", ".");
     //BrickFactory::create()
     qDebug()<<"Started!";
     //brick->motor("M1")->setPower(80);
